@@ -41,7 +41,7 @@
 class gdm::logo($source) {
     if($gdm_installed == 'true') {
         case $osfamily {
-            RedHat: {
+            'RedHat': {
                 case $operatingsystemrelease {
                     /^6\..*/: {
                         class { 'gdm::logo::rhel6':
@@ -53,10 +53,10 @@ class gdm::logo($source) {
                             source => $source,
                         }
                     }
-                    default: { unimplemented() }
+                    default: { fail "unimplemented on ${::osfamily} ${::operatingsystemrelease}" }
                 }
             }
-            default: { unimplemented() }
+            default: { fail "unimplemented on ${::osfamily}" }
         }
     }
 }

@@ -20,17 +20,17 @@
 class gdm::no_user_list {
     if($gdm_installed == 'true') {
         case $osfamily {
-            RedHat: {
+            'RedHat': {
                 case $operatingsystemrelease {
                     /^6\..*/: {
                         include gdm::no_user_list::rhel6
                     }
 # GDM 2 (RHEL5) doesn't do user lists.
                     /^5\..*/: { }
-                    default: { unimplemented() }
+                    default: { fail "unimplemented on ${::osfamily} ${::operatingsystemrelease}" }
                 }
             }
-            default: { unimplemented() }
+            default: { fail "unimplemented on ${::osfamily}" }
         }
     }
 }

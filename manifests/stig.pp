@@ -21,14 +21,14 @@
 class gdm::stig {
     if($gdm_installed == 'true') {
         case $osfamily {
-            RedHat: {
+            'RedHat': {
                 case $operatingsystemrelease {
                     /^6.*/: { include gdm::stig::rhel6 }
                     /^5.*/: { include gdm::stig::rhel5 }
-                    default: { unimplemented() }
+                    default: { fail "unimplemented on ${::osfamily} ${::operatingsystemrelease}" }
                 }
             }
-            default: { unimplemented() }
+            default: { fail "unimplemented on ${::osfamily}" }
         }
     }
 }
