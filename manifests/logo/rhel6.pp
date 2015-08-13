@@ -26,11 +26,11 @@ class gdm::logo::rhel6($source) {
     $hic = "/usr/share/icons/hicolor"
     file {
         "$hic/48x48/stock/image/puppet-logo.png":
-            owner => root, group => 0, mode => 0644,
+            owner => root, group => 0, mode => '0644',
             source => "${source}/logo-48x48.png",
             notify => Exec['gdm_logo_update_icon_cache'];
         "$hic/scalable/stock/image/puppet-logo.png":
-            owner => root, group => 0, mode => 0644,
+            owner => root, group => 0, mode => '0644',
             source => "${source}/logo-scalable.png",
             notify => Exec['gdm_logo_update_icon_cache'];
     }

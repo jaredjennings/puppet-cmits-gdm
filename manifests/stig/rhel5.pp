@@ -20,7 +20,7 @@ class gdm::stig::rhel5 {
 # set yet, it won't.
     file { "/etc/gdm/custom.conf":
         ensure => present,
-        owner => root, group => 0, mode => 0644,
+        owner => root, group => 0, mode => '0644',
     }
 # \implements{rhel5stig}{GEN000000-LNX00360}%
 # \implements{rhel5stig}{GEN000000-LNX00380} Set the right X server options
